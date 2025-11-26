@@ -10,9 +10,25 @@ for (const i of hi) {
     i.addEventListener("change", function () {
 
         if (this.checked) {
-            passwordList.push(capLetters)
+            if (this.value == "1") {
+                passwordList.push(capLetters)
+                console.log(passwordList)
+            }
             
-            console.log(passwordList)
+            else if (this.value == "2") {
+                passwordList.push(lowLetters)
+                console.log(passwordList)
+            }
+
+            else if (this.value == "3") {
+                passwordList.push(numbers)
+                console.log(numbers)
+            }
+
+            else {
+                passwordList.push(symbols)
+                console.log(passwordList)
+            }
 
         } else {
             console.log("no")
