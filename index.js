@@ -1,4 +1,5 @@
 const input = document.getElementsByName("password")
+const notice = document.getElementById("notice")
 let check = 0
 const capLetters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
 const lowLetters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
@@ -82,11 +83,15 @@ function setLength () {
 
 //create password from elements in passwordList
 function createPassword(length) {
-    password = ""
-    for(let i = 0; i < length; i++) {
-        index = passwordList[Math.floor(Math.random() * passwordList.length)]
-        password += index[Math.floor(Math.random() * index.length)]
+    if (length < 12) {
+        notice.textContent = ("A strong password is reccomended to have at least 12 characters. Are you sure you want to proceed? (Click generate password again if yes)")
+    } else { 
+     password = ""
+        for(let i = 0; i < length; i++) {
+            index = passwordList[Math.floor(Math.random() * passwordList.length)]
+            password += index[Math.floor(Math.random() * index.length)]
+        }
+        console.log(password)
+        updatePassword.textContent = password
     }
-    console.log(password)
-    updatePassword.textContent = password
-}
+} 
