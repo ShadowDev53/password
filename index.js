@@ -1,4 +1,4 @@
-const hi = document.getElementsByName("password")
+const input = document.getElementsByName("password")
 let check = 0
 const capLetters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
 const lowLetters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
@@ -10,7 +10,9 @@ let index = []
 let password = ""
 let passwordLength = 0
 const updatePassword = document.getElementById("password")
-for (const i of hi) {
+
+// Build Passwordlist from input
+for (const i of input) {
     i.addEventListener("change", function () {
 
         if (this.checked) {
@@ -70,6 +72,7 @@ for (const i of hi) {
 
 }
 
+// Set password length
 function setLength () {
     const charValue = document.getElementById("length")
     passwordLength = charValue.value
@@ -77,6 +80,7 @@ function setLength () {
     console.log(password)
 }
 
+//create password from elements in passwordList
 function createPassword(length) {
     password = ""
     for(let i = 0; i < length; i++) {
