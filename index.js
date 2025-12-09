@@ -21,7 +21,7 @@ for (const i of input) {
                 passwordList.push(capLetters)
                 console.log(passwordList)
             }
-            
+
             else if (this.value == "2") {
                 passwordList.push(lowLetters)
                 console.log(passwordList)
@@ -44,7 +44,7 @@ for (const i of input) {
                 console.log(passwordFilter)
                 console.log(passwordList)
             }
-            
+
             else if (this.value == "2") {
                 passwordFilter = passwordList.indexOf(lowLetters)
                 passwordList.splice(passwordFilter, 1)
@@ -74,7 +74,7 @@ for (const i of input) {
 }
 
 // Set password length
-function setLength () {
+function setLength() {
     const charValue = document.getElementById("length")
     passwordLength = charValue.value
     createPassword(passwordLength)
@@ -83,15 +83,20 @@ function setLength () {
 
 //create password from elements in passwordList
 function createPassword(length) {
-    if (length < 12) {
-        notice.textContent = ("A strong password is reccomended to have at least 12 characters. Are you sure you want to proceed? (Click generate password again if yes)")
-    } else { 
-     password = ""
-        for(let i = 0; i < length; i++) {
-            index = passwordList[Math.floor(Math.random() * passwordList.length)]
-            password += index[Math.floor(Math.random() * index.length)]
+    if (passwordList.length == 0) {
+        notice.textContent = ("Please select if you want capital letters, lowercase letters, numbers, and symbols, then click generate password again.")
+    } else
+        if (length < 12 && check == 0) {
+            notice.textContent = ("A strong password is reccomended to have at least 12 characters. Are you sure you want to proceed? (Click generate password again if yes)")
+            check += 1
+        } else {
+            password = ""
+            for (let i = 0; i < length; i++) {
+                index = passwordList[Math.floor(Math.random() * passwordList.length)]
+                password += index[Math.floor(Math.random() * index.length)]
+            }
+            console.log(password)
+            updatePassword.textContent = password
+            notice.textContent = ("")
         }
-        console.log(password)
-        updatePassword.textContent = password
-    }
 } 
