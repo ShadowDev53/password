@@ -37,7 +37,8 @@ for (const i of input) {
                 console.log(passwordList)
             }
 
-        } else {
+        }
+        else {
             if (this.value == "1") {
                 passwordFilter = passwordList.indexOf(capLetters)
                 passwordList.splice(passwordFilter, 1)
@@ -84,12 +85,16 @@ function setLength() {
 //create password from elements in passwordList
 function createPassword(length) {
     if (passwordList.length == 0) {
-        notice.textContent = ("Please select if you want capital letters, lowercase letters, numbers, and symbols, then click generate password again.")
-    } else
+        notice.textContent = ("Please select if you want capital letters, lowercase letters,"
+            + "numbers, and symbols, then click generate password again.")
+    }
+    else
         if (length < 12 && check == 0) {
-            notice.textContent = ("A strong password is reccomended to have at least 12 characters. Are you sure you want to proceed? (Click generate password again if yes)")
+            notice.textContent = ("A strong password is reccomended to have at least 12 characters."
+                + "Are you sure you want to proceed? (Click generate password again if yes)")
             check += 1
-        } else {
+        }
+        else {
             password = ""
             for (let i = 0; i < length; i++) {
                 index = passwordList[Math.floor(Math.random() * passwordList.length)]
